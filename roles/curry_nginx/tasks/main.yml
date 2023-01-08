@@ -1,0 +1,37 @@
+---
+# tasks file for curry_nginx
+- name: Install Nginx
+  ansible.builtin.apt:
+    name: nginx
+    state: present
+- name: Remove default site
+  ansible.builtin.file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+
+- name: Create includes dir
+  ansible.builtin.file:
+    path: /etc/nginx/includes/
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+- name: Copy ssl options
+  ansible.builtin.copy:
+    src: "etc/nginx/includes/options-ssl.conf"
+    dest: "/etc/nginx/includes/options-ssl.conf"
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Create includes dir
+  ansible.builtin.file:
+    path: /etc/nginx/dhparam/
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+- name: Generate DH Parameters with 2048 bits
+  community.crypto.openssl_dhparam:
+    path: /etc/nginx/dhparam/dhparam.pem
+    size: 2048

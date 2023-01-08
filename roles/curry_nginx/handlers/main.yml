@@ -1,0 +1,11 @@
+---
+# handlers file for curry_nginx
+- name: Restart Nginx
+  ansible.builtin.systemd:
+    name: nginx
+    state: restarted
+
+- name: Reload Nginx
+  ansible.builtin.systemd:
+    name: nginx
+    state: reload
