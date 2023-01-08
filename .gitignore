@@ -1,0 +1,7 @@
+*~
+.ansible
+
+.DS_Store
+venv-ansible
+hosts
+pv-vault-pass
