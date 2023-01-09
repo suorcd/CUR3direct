@@ -1,0 +1,10 @@
+---
+- name: Provision Redirect server
+  hosts: curry_redirect_srv
+  become: true
+  become_method: sudo
+
+  roles:
+#   - curry_certbot_wildcard
+    - curry_nginx
+    - curry_redirect

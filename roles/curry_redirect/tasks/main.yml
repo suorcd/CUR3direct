@@ -1,2 +1,24 @@
 ---
 # tasks file for curry_redirect
+
+- name: Include vars
+  ansible.builtin.include_vars:
+    main.yaml
+
+- name: Template 33-redirect
+  vars:
+    server_num: "33"
+  ansible.builtin.template:
+    src: nginx-{{ server_num }}-redirect.conf.j2
+    dest: /etc/nginx/sites-available/{{ server_num }}-{{ dn_from }}
+    owner: root
+    group: root
+    mode: '0640'
+- name: Activate 33-redirect
+  vars:
+    server_num: "33"
+  ansible.builtin.file:
+    src: /etc/nginx/sites-available/{{ server_num }}-{{ dn_from }}
+    dest: /etc/nginx/sites-enabled/{{ server_num }}-{{ dn_from }}
+    state: link
+  notify: Restart Nginx

@@ -1,2 +1,4 @@
 ---
 # defaults file for curry_redirect
+dn_from: test-a.suorcd.us
+dn_to: dest-a.suorcd.us
