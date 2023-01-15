@@ -1,20 +1,22 @@
 ---
 - name: Provision Redirect server
-  hosts: curry_redirect_srv
+  hosts: CUR3direct_redirect_srv
   become: true
   become_method: sudo
 
   roles:
-    - role: curry_certbot
-      cert_domain: newpodcastapps.com
-    - curry_nginx
-    - role: curry_redirect
+    - role: CUR3direct_certbot
+      certbot_admin_email: adam@CUR3direct.com
+      certbot_domain: newpodcastapps.com
+    - CUR3direct_nginx
+    - role: CUR3direct_redirect
       dn_source: newpodcastapps.com
       dn_destination: https://podcastindex.org:443/apps
       redirect_code: 301
+      secrets_ini: '/root/.secrets/certbot/digitalocean.ini'
       tls: false
       ipv6: false
-    - role: curry_redirect
+    - role: CUR3direct_redirect
       dn_source: nudepodcastapps.com
       dn_destination: https://podcastindex.org:443/apps
       redirect_code: 301

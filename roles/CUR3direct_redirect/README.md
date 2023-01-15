@@ -20,7 +20,7 @@ ipv6: enable IPv6 (boolean)
 Dependencies
 ------------
 
-curry_nginx
+CUR3direct_nginx
 
 Example Playbook
 ----------------
@@ -32,7 +32,7 @@ Including an example of how to use your role (for instance, with variables passe
          - { role: username.rolename, x: 42 }
     - hosts: servers
       roles:
-        - role: curry_redirect
+        - role: CUR3direct_redirect
           dn_source: newpodcastapps.com
           dn_destination: https://podcastindex.org:443/apps
           redirect_code: 301

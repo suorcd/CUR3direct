@@ -1,4 +1,4 @@
-# curry_redirect
+# CUR3direct
 Ansible playbook to deploy reidirect servers
 
 # Preamble

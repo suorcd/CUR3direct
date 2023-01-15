@@ -1,5 +1,5 @@
 ---
-# tasks file for curry_redirect
+# tasks file for CUR3direct_redirect
 
 - name: Template 33-redirect
   vars:
