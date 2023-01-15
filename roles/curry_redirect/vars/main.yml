@@ -1,8 +1,0 @@
----
-# vars file for curry_redirect
-dn_from: newpodcastapps.com
-dn_to: podcastindex.org
-path_to: /apps
-redirect_code: 302
-ipv6: false
-tls: false

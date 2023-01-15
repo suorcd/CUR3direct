@@ -5,6 +5,18 @@
   become_method: sudo
 
   roles:
-#   - curry_certbot_wildcard
+    - role: curry_certbot
+      cert_domain: newpodcastapps.com
     - curry_nginx
-    - curry_redirect
+    - role: curry_redirect
+      dn_source: newpodcastapps.com
+      dn_destination: https://podcastindex.org:443/apps
+      redirect_code: 301
+      tls: false
+      ipv6: false
+    - role: curry_redirect
+      dn_source: nudepodcastapps.com
+      dn_destination: https://podcastindex.org:443/apps
+      redirect_code: 301
+      tls: false
+      ipv6: false

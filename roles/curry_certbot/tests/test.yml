@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - curry_certbot_wildcard
+    - curry_certbot
