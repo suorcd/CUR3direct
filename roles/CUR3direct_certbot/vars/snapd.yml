@@ -1,2 +1,3 @@
 ---
 # vars file for CUR3direct_certbot
+certbot: /snap/bin/certbot

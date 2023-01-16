@@ -26,7 +26,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-        - curry_nginx
+        - CUR3direct_nginx
 License
 -------
 

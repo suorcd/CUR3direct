@@ -20,7 +20,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-        - role: curry_certbot
+        - role: CUR3direct_certbot
           cert_domain: newpodcastapps.com
 License
 -------

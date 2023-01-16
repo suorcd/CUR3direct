@@ -1,6 +1,11 @@
 ---
 # tasks file for CUR3direct_redirect
 
+- name: Include certbot role, if tls is true
+  ansible.builtin.include_role:
+    name: CUR3direct_certbot
+  when: tls
+
 - name: Template 33-redirect
   vars:
     server_num: "33"

@@ -1,0 +1,38 @@
+---
+
+- name: Install certbot
+  community.general.snap:
+    name: certbot
+    classic: true
+    options:
+      - trust-plugin-with-root=ok
+
+- name: Install certbot-dns-digitalocean
+  community.general.snap:
+    name: certbot-dns-digitalocean
+
+- name: Create certbot secrets dir
+  ansible.builtin.file:
+    path: /root/.secrets/certbot/
+    state: directory
+    owner: root
+    group: root
+    mode: '0750'
+
+
+- name: Include api_key vars
+  ansible.builtin.include_vars:
+    api_key.yaml
+
+
+- name: Template digital ocean api_key ini
+  ansible.builtin.template:
+    src: secret-certbot-digitalocean.ini.j2
+    dest: /root/.secrets/certbot/digitalocean.ini
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: Include snapd vars
+  ansible.builtin.include_vars:
+    snapd.yaml

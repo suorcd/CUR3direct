@@ -1,13 +1,10 @@
 ---
 - name: Provision Redirect server
-  hosts: CUR3direct_redirect_srv
+  hosts: CUR3direct_srv
   become: true
   become_method: sudo
 
   roles:
-    - role: CUR3direct_certbot
-      certbot_admin_email: adam@CUR3direct.com
-      certbot_domain: newpodcastapps.com
     - CUR3direct_nginx
     - role: CUR3direct_redirect
       dn_source: newpodcastapps.com
@@ -16,9 +13,18 @@
       secrets_ini: '/root/.secrets/certbot/digitalocean.ini'
       tls: false
       ipv6: false
+      certbot_admin_email: adam@curry.com
     - role: CUR3direct_redirect
       dn_source: nudepodcastapps.com
       dn_destination: https://podcastindex.org:443/apps
       redirect_code: 301
       tls: false
       ipv6: false
+      certbot_admin_email: adam@curry.com
+    - role: CUR3direct_redirect
+      dn_source: helipad.cloud
+      dn_destination: https://github.com:443/Podcastindex-org/helipad
+      redirect_code: 301
+      tls: false
+      ipv6: false
+      certbot_admin_email: adam@curry.com

@@ -1,5 +1,5 @@
 ---
-# tasks file for curry_nginx
+# tasks file for CUR3direct_nginx
 - name: Install Nginx
   ansible.builtin.apt:
     name: nginx

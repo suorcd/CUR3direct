@@ -1,5 +1,5 @@
 ---
-# handlers file for curry_nginx
+# handlers file for CUR3direct_nginx
 - name: Restart Nginx
   ansible.builtin.systemd:
     name: nginx
