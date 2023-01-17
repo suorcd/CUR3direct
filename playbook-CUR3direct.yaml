@@ -8,14 +8,14 @@
     - CUR3direct_nginx
     - role: CUR3direct_redirect
       dn_source: value4value.io
-      dn_destination: https://value4value.info:443/
+      dn_destination: https://value4value.info/
       redirect_code: 301
       tls: false
-      ipv6: false
+      ipv6: true
       certbot_admin_email: cur3@bobot.lol
     - role: CUR3direct_redirect
       dn_source: helipad.cloud
-      dn_destination: https://podcastindex.org:443/
+      dn_destination: https://podcastindex.org/
       redirect_code: 301
       tls: true
       ipv6: true
