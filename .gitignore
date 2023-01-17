@@ -5,3 +5,5 @@
 venv-ansible
 hosts
 pv-vault-pass
+
+*key.yml
