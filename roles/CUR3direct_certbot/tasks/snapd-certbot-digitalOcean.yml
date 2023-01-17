@@ -20,9 +20,9 @@
     mode: '0750'
 
 
-- name: Include api_key vars
+- name: Include digitalocean_api_key vars
   ansible.builtin.include_vars:
-    api_key.yaml
+    digitalocean_api_key.yml
 
 
 - name: Template digital ocean api_key ini
@@ -35,4 +35,14 @@
 
 - name: Include snapd vars
   ansible.builtin.include_vars:
-    snapd.yaml
+    snapd.yml
+
+- name: Create cert via certbot digital ocean dns
+  ansible.builtin.command:
+    cmd: >
+      {{ certbot }} certonly
+      --email '{{ certbot_admin_email }}'
+      --dns-digitalocean --dns-digitalocean-credentials /root/.secrets/certbot/digitalocean.ini
+      --noninteractive --agree-tos
+      -d {{ dn_source }}
+    creates: /etc/letsencrypt/live/{{ dn_source }}/cert.pem

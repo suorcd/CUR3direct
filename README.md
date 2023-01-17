@@ -68,3 +68,16 @@ ansible-galaxy collection install community.crypto
 The file sets up the inventory of the various servers
 
 Should look similar to the [example of hosts](example-hosts)
+
+#### Run playbook
+
+```bash
+ansible-playbook playbook-CUR3direct.yaml
+```
+
+### Notes
+
+#### Let's encrypt
+
+* Digital Oceaon https://certbot-dns-digitalocean.readthedocs.io/en/stable/
+* Linode https://certbot-dns-linode.readthedocs.io/en/stable/

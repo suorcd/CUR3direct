@@ -1,2 +1,5 @@
 ---
 # handlers file for CUR3direct_certbot
+- name: Restart certbot
+  ansible.builtin.command:
+    cmd: snap restart certbot

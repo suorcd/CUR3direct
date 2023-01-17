@@ -7,24 +7,17 @@
   roles:
     - CUR3direct_nginx
     - role: CUR3direct_redirect
-      dn_source: newpodcastapps.com
-      dn_destination: https://podcastindex.org:443/apps
-      redirect_code: 301
-      secrets_ini: '/root/.secrets/certbot/digitalocean.ini'
-      tls: false
-      ipv6: false
-      certbot_admin_email: adam@curry.com
-    - role: CUR3direct_redirect
-      dn_source: nudepodcastapps.com
-      dn_destination: https://podcastindex.org:443/apps
+      dn_source: value4value.io
+      dn_destination: https://value4value.info:443/
       redirect_code: 301
       tls: false
       ipv6: false
-      certbot_admin_email: adam@curry.com
+      certbot_admin_email: cur3@bobot.lol
     - role: CUR3direct_redirect
       dn_source: helipad.cloud
-      dn_destination: https://github.com:443/Podcastindex-org/helipad
+      dn_destination: https://podcastindex.org:443/
       redirect_code: 301
-      tls: false
-      ipv6: false
-      certbot_admin_email: adam@curry.com
+      tls: true
+      ipv6: true
+      cert_provider: Snapd_Linode
+      certbot_admin_email: cur3@bobot.lol
