@@ -12,6 +12,7 @@
       redirect_code: 301
       tls: false
       ipv6: true
+
       certbot_admin_email: cur3@bobot.lol
     - role: CUR3direct_redirect
       dn_source: helipad.cloud
@@ -19,5 +20,18 @@
       redirect_code: 301
       tls: true
       ipv6: true
+      cert_provider: Snapd_Linode
+      certbot_admin_email: cur3@bobot.lol
+    - role: CUR3directReverseProxy
+      dn_source: value4value.io
+      dn_destination: https://value4value.info/
+      tls: true
+      ipv6: true
+
+      srv_sites:
+        - srv_name: icy
+          srv_subdomain: icy
+          srv_upstream: localhost
+          srv_upstream_port: 2342
       cert_provider: Snapd_Linode
       certbot_admin_email: cur3@bobot.lol

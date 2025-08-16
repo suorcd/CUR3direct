@@ -1,3 +1,7 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # tasks file for roles/CUR3directReverseProxy
+
+- name: Include srv helipad-cloud
+  ansible.builtin.include_tasks: helipad-cloud.yml
+  when: dn_source == 'helipad.cloud'

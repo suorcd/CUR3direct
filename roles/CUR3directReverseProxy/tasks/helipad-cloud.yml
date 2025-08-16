@@ -1,0 +1,17 @@
+---
+# tasks file for roles/CUR3directReverseProxy
+
+
+- name: Srv Conf ICY Proxy
+  vars:
+    srv_name: icy
+    srv_subdomain: icy
+    srv_upstream: localhost
+    srv_upstream_port: 2342
+  ansible.builtin.template:
+    src: nginx-{{ srv_name }}.conf.j2
+    dest: /etc/nginx/sites-available/{{ srv_name }}.conf
+    owner: root
+    group: root
+    mode: '0640'
+
