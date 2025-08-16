@@ -1,6 +1,6 @@
 {
   description = "Ansible development environment";
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/48ce06dd94d7673eaf69508358f8af067856f3a3";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
   outputs = { self, nixpkgs }: let
     pkgs = import nixpkgs {
