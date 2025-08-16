@@ -33,6 +33,17 @@ reboot
 
 ### Setup Ansible on command ser (developer laptop)
 
+#### nix flake
+
+```bash
+nix develop
+```
+
+```bash
+bash ./setup-ansible.sh
+```
+
+
 #### pip install
 
 In the podverse-ansible dir
@@ -62,6 +73,7 @@ Then run ansible commands.
 ```bash
 ansible-galaxy collection install community.crypto
 ```
+
 
 #### Populate hosts
 
