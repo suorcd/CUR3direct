@@ -82,15 +82,18 @@ Should look similar to the [example of hosts](example-hosts)
 
 #### Ansible vault
 
+##### Vault pasword file
+
 Create strong password file at `~/.ansible/pv-vault-pass`
 
 
-Create an encrypted vault file:
+##### Create an encrypted vault file
+
 ```bash
-ansible-vault create group_vars/all/vault.yml
+EDITOR=vim ansible-vault create group_vars/all/vault.yml
 
 ```
-Add Linode Secret:
+Add Linode Secret
 
 ```bash
 linode_api_key: your_actual_api_key_here
@@ -99,11 +102,18 @@ linode_api_key: your_actual_api_key_here
 
 or 
 
-Add Digital Ocean secret:
+Add Digital Ocean secret
 
 ```bash
 digitalocean_api_key: your_actual_api_key_here
 
+```
+
+##### Edit vault
+
+```bash
+EDITOR=vim ansible-vault edit group_vars/all/vault.yml
+py
 ```
 #### Run playbook
 
