@@ -14,7 +14,7 @@ server {
   server_name {{srv_subdomain}}.{{ dn_source }};
   client_max_body_size 500M;
 
-  include /etc/nginx/includes/options-ssl-{{ dn_source }}.conf;
+  include /etc/nginx/includes/options-ssl.conf;
 
   location / {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
