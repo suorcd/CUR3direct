@@ -3,35 +3,29 @@
   hosts: CUR3direct_srv
   become: true
   become_method: sudo
-
-  roles:
-    - CUR3direct_nginx
-    - role: CUR3direct_redirect
-      dn_source: value4value.io
-      dn_destination: https://value4value.info/
-      redirect_code: 301
-      tls: false
-      ipv6: true
-
-      certbot_admin_email: cur3@bobot.lol
-    - role: CUR3direct_redirect
+  vars:
       dn_source: helipad.cloud
+      vps_host: linode
+      cert_provider: Snapd_Linode
+      certbot_admin_email: cur3@bobot.lol
+      server_num: "00"
+      nginx_client_max_body_size: "1M"
+  roles:
+#   - CUR3directUfw
+    - role: CUR3direct_nginx_conf
+      conf_template_name: nginx-redirect.conf.j2
+      srv_name: helipad.cloud
       dn_destination: https://podcastindex.org/
       redirect_code: 301
       tls: true
       ipv6: true
-      cert_provider: Snapd_Linode
-      certbot_admin_email: cur3@bobot.lol
-    - role: CUR3directReverseProxy
-      dn_source: value4value.io
-      dn_destination: https://value4value.info/
+      server_num: "33"
+    - role: CUR3direct_nginx_conf
+      conf_template_name: nginx-reverse-proxy.conf.j2
+      srv_name: serf00
       tls: true
       ipv6: true
-
-      srv_sites:
-        - srv_name: icy
-          srv_subdomain: icy
-          srv_upstream: localhost
-          srv_upstream_port: 2342
-      cert_provider: Snapd_Linode
-      certbot_admin_email: cur3@bobot.lol
+      srv_subdomain: serf00
+      srv_upstream: localhost
+      srv_upstream_port: 2342
+      server_num: "01"
