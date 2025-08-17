@@ -10,7 +10,7 @@ Ansible playbook to deploy reidirect servers
 This provides a repeatable way to build the Podverse servers.
 It also documents, what apps/configs are needed to run the servers.
 
-This is only tested on Ubuntu 22.04; it will most likely not work on another distro
+This is only tested on Ubuntu 24.04; it will most likely not work on another distro
 
 # Steps
 
@@ -24,7 +24,6 @@ apt upgrade -y
 apt autoremove -y
 apt autoclean -y
 apt clean -y
-snap remove lxd
 snap refresh
 reboot
 ```
@@ -33,15 +32,6 @@ reboot
 
 ### Setup Ansible on command ser (developer laptop)
 
-#### nix flake
-
-```bash
-nix develop
-```
-
-```bash
-bash ./setup-ansible.sh
-```
 
 
 #### pip install
@@ -67,6 +57,15 @@ source venv-ansible/bin/activate
 
 Then run ansible commands.
 
+#### nix flake
+
+```bash
+nix develop
+```
+
+```bash
+bash ./setup-ansible.sh
+```
 
 ##### crypto
 
@@ -81,6 +80,31 @@ The file sets up the inventory of the various servers
 
 Should look similar to the [example of hosts](example-hosts)
 
+#### Ansible vault
+
+Create strong password file at `~/.ansible/pv-vault-pass`
+
+
+Create an encrypted vault file:
+```bash
+ansible-vault create group_vars/all/vault.yml
+
+```
+Add Linode Secret:
+
+```bash
+linode_api_key: your_actual_api_key_here
+
+```
+
+or 
+
+Add Digital Ocean secret:
+
+```bash
+digitalocean_api_key: your_actual_api_key_here
+
+```
 #### Run playbook
 
 ```bash
