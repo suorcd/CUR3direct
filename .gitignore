@@ -7,3 +7,4 @@ hosts
 pv-vault-pass
 
 *key.yml
+vault.yml
