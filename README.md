@@ -1,16 +1,14 @@
 # CUR3direct
-Ansible playbook to deploy reidirect servers
+Ansible playbook to deploy NGINX conf (redirects and/or reverse proxy) with a Let's Encrypt Cert
 
 # Preamble
-
-(See You Redirect)
+Currently tested on Linode with Linode DNS
 
 ## Reason
 
-This provides a repeatable way to build the Podverse servers.
-It also documents, what apps/configs are needed to run the servers.
+This provides a repeatable way to create a NGINX server with certs and conf, quickly.
 
-This is only tested on Ubuntu 24.04; it will most likely not work on another distro
+This is only tested on Ubuntu 24.04.
 
 # Steps
 
@@ -31,7 +29,6 @@ reboot
 ## Ansible
 
 ### Setup Ansible on command ser (developer laptop)
-
 
 
 #### pip install
@@ -95,18 +92,16 @@ EDITOR=vim ansible-vault create group_vars/all/vault.yml
 ```
 Add Linode Secret
 
-```bash
+```
 linode_api_key: your_actual_api_key_here
-
 ```
 
 or 
 
 Add Digital Ocean secret
 
-```bash
+```
 digitalocean_api_key: your_actual_api_key_here
-
 ```
 
 ##### Edit vault
