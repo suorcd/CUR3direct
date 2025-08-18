@@ -19,12 +19,6 @@
     group: root
     mode: '0750'
 
-
-- name: Include digitalocean_api_key vars
-  ansible.builtin.include_vars:
-    digitalocean_api_key.yml
-
-
 - name: Template digital ocean api_key ini
   ansible.builtin.template:
     src: secret-certbot-digitalocean.ini.j2

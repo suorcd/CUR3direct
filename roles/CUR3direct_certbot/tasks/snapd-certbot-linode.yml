@@ -19,10 +19,6 @@
     group: root
     mode: '0750'
 
-- name: Include liode_api_key vars
-  ansible.builtin.include_vars:
-    linode_api_key.yml
-
 - name: Template linode api_key ini
   ansible.builtin.template:
     src: secret-certbot-linode.ini.j2
